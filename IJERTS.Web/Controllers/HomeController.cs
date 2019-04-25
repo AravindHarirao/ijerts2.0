@@ -110,21 +110,20 @@ namespace IJERTS.Web.Controllers
         }
 
         public FileResult DownloadCurrentIssue(int PaperId)
-        {
-            
+        {            
             string selectedFileName = (home.GetCurrentIssues()).FirstOrDefault(x => x.PaperId == PaperId).PaperName;
             string selectedFilePath = (home.GetCurrentIssues()).FirstOrDefault(x => x.PaperId == PaperId).PaperPath;
 
             home.IncreamentDownloadCounter(PaperId);
 
-            string sFileName = Path.Combine(selectedFilePath, selectedFileName, ".pdf");
+            string sUploadedPath = Server.MapPath("~/CurrentIssues/");
+            string sFileName = sUploadedPath + selectedFilePath;
             if (!string.IsNullOrEmpty(sFileName))
             {
                 if (System.IO.File.Exists(sFileName))
                 {
                     string fileExtension = Path.GetExtension(sFileName);
-                    return this.File(sFileName, "application/" + "pdf", selectedFileName);
-
+                    return this.File(sFileName, "application/" + fileExtension, selectedFilePath);
                 }
                 else
                 {

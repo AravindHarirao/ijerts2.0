@@ -191,6 +191,7 @@
     <Content Include="Content\images\users\avatar-7.jpg" />
     <Content Include="Content\images\users\avatar-8.jpg" />
     <Content Include="Content\images\users\avatar-9.jpg" />
+    <Content Include="CurrentIssues\FileNotExists.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Downloads\IJERTS-CopyrightForm_v1.0.docx" />
@@ -220,6 +221,16 @@
     <Content Include="Content\fonts\slick.ttf" />
     <Content Include="Content\fonts\slick.woff" />
     <Content Include="Content\images\.DS_Store" />
+    <Content Include="CurrentIssues\Paper ID-IJERTS_2019_001.pdf" />
+    <Content Include="CurrentIssues\Paper ID-IJERTS_2019_002.pdf" />
+    <Content Include="CurrentIssues\Paper ID-IJERTS_2019_007.pdf" />
+    <Content Include="CurrentIssues\Paper ID-IJERTS_2019_008.pdf" />
+    <Content Include="CurrentIssues\PAPER ID-IJERTS_2019_010.pdf" />
+    <Content Include="CurrentIssues\PAPER ID-IJERTS_2019_011.pdf" />
+    <Content Include="CurrentIssues\PAPER ID-IJERTS_2019_012.pdf" />
+    <Content Include="CurrentIssues\Paper IDIJERTS_2019_003.pdf" />
+    <Content Include="CurrentIssues\Paper IDIJERTS_2019_004.pdf" />
+    <Content Include="CurrentIssues\Paper IDIJERTS_2019_005.pdf" />
     <None Include="Properties\PublishProfiles\IJERTS.Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\IJERTS.Publish.pubxml" />
     <None Include="Properties\PublishProfiles\IJERTS.Release.pubxml" />
@@ -315,7 +326,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="CurrentIssues\" />
     <Folder Include="UploadedFiles\AuthorPapers\" />
     <Folder Include="UploadedFiles\ReviewerResume\" />
     <Folder Include="Views\Default\" />

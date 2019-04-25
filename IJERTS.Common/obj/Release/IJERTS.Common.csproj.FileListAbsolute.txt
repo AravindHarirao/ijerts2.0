@@ -12,3 +12,10 @@ D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Common\bin\Release\IJERTS.Ob
 D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Common\obj\Release\IJERTS.Common.csprojResolveAssemblyReference.cache
 D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Common\obj\Release\IJERTS.Common.dll
 D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Common\obj\Release\IJERTS.Common.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Common\bin\Release\IJERTS.Common.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Common\bin\Release\IJERTS.Common.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Common\bin\Release\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Common\bin\Release\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Common\obj\Release\IJERTS.Common.csprojResolveAssemblyReference.cache
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Common\obj\Release\IJERTS.Common.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Common\obj\Release\IJERTS.Common.pdb

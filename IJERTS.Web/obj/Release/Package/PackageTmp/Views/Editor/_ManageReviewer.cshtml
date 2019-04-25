@@ -66,7 +66,7 @@
         <button class="hidden" id="btnReviewerDetails" type="Submit"></button>
     }
 
-    @using (Html.BeginForm("ActivateDeActivateReviewer", "Reviewer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("ActivateDeActivateReviewer", "Reviewer", FormMethod.Post, new { @class = "frmActivateDeActivateReviewer", enctype = "multipart/form-data" }))
     {
         @Html.Hidden("UserId")
         @Html.Hidden("FirstName")
@@ -125,11 +125,11 @@
         var firstname = $(this).attr("data-firstname");
         var lastname = $(this).attr("data-lastname");
         var email = $(this).attr("data-email");
-        $('#UserId').val(userid);
-        $('#FirstName').val(firstname);
-        $('#LastName').val(lastname);
-        $('#Email').val(email);
-        $('#Type').val('A');
+        $('.frmActivateDeActivateReviewer > #UserId').val(userid);
+        $('.frmActivateDeActivateReviewer > #FirstName').val(firstname);
+        $('.frmActivateDeActivateReviewer > #LastName').val(lastname);
+        $('.frmActivateDeActivateReviewer > #Email').val(email);
+        $('.frmActivateDeActivateReviewer > #Type').val('A');
         $('#btnActivateReviewer').click();
     });
 
@@ -138,11 +138,11 @@
         var firstname = $(this).attr("data-firstname");
         var lastname = $(this).attr("data-lastname");
         var email = $(this).attr("data-email");
-        $('#UserId').val(userid);
-        $('#FirstName').val(firstname);
-        $('#LastName').val(lastname);
-        $('#Email').val(email);
-        $('#Type').val('D');
+        $('.frmActivateDeActivateReviewer > #UserId').val(userid);
+        $('.frmActivateDeActivateReviewer > #FirstName').val(firstname);
+        $('.frmActivateDeActivateReviewer > #LastName').val(lastname);
+        $('.frmActivateDeActivateReviewer > #Email').val(email);
+        $('.frmActivateDeActivateReviewer > #Type').val('D');
         $('#btnActivateReviewer').click();
     });
 </script>

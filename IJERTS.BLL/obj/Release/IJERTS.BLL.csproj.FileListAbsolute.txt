@@ -22,3 +22,15 @@ D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.BLL\bin\Release\MySql.Data.x
 D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.BLL\obj\Release\IJERTS.BLL.csprojResolveAssemblyReference.cache
 D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.BLL\obj\Release\IJERTS.BLL.dll
 D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.BLL\obj\Release\IJERTS.BLL.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\IJERTS.BLL.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\IJERTS.BLL.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\IJERTS.DAL.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\MySql.Data.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\Google.Protobuf.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\IJERTS.DAL.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\bin\Release\MySql.Data.xml
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\obj\Release\IJERTS.BLL.csprojResolveAssemblyReference.cache
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\obj\Release\IJERTS.BLL.dll
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.BLL\obj\Release\IJERTS.BLL.pdb

@@ -155,7 +155,7 @@ namespace IJERTS.DAL
 
         public List<CurrentIssues> GetCurrentIssues()
         {
-            string queryText = "select * from ijerts.currentissues;";
+            string queryText = "select * from currentissues;";
 
             List<CurrentIssues> result = new List<CurrentIssues>();
             try
@@ -174,9 +174,9 @@ namespace IJERTS.DAL
                         currentIssue.PaperId = reader.GetInt32("issueId");
                         currentIssue.PaperName = reader.GetString("paperName");
                         currentIssue.PaperPath = reader.GetString("paperPath");
-                        currentIssue.Rank = reader.GetInt32("rank");
+                        currentIssue.SortOrder = reader.GetInt32("sortorder");
                         currentIssue.NumberOfDownload = reader.GetInt32("numberOfDownload");
-                        currentIssue.PostedDate = reader.GetDateTime("createdDate").ToString("DD/MM/YYYY");
+                        currentIssue.PostedDate = Convert.ToDateTime(reader.GetString("createdDate")).ToString("dd/MM/yyyy");
                         result.Add(currentIssue);
                     }
 

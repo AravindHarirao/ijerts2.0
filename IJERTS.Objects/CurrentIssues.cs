@@ -14,7 +14,7 @@ namespace IJERTS.Objects
 
         public string PaperPath { get; set; }
 
-        public int Rank { get; set; }
+        public int SortOrder { get; set; }
 
         public int NumberOfDownload { get; set; }
 

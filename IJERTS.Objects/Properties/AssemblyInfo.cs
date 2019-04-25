@@ -24,13 +24,12 @@ using System.Runtime.InteropServices;
 
 // Version information for an assembly consists of the following four values:
 //
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
+//      Major Version   2       - Build 
+//      Minor Version   0319    - 01(Dev), 02(UAT), 03(Prod), 19(Year)
+//      Build Number    0425    - 04(Month), 25(Date)
+//      Revision        [*] Auto Increment
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0319.0425.*")]
+[assembly: AssemblyFileVersion("2.0319.0425.*")]
