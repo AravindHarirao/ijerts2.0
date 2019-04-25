@@ -1,0 +1,106 @@
+﻿@{
+    @model IJERTS.Objects.Users
+    ViewBag.Title = "Reviewer Login";
+    ViewData["Title"] = "Reviewer Login";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Reviewer Login</h2>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card-box">
+            @using (Html.BeginForm("ValidateReviewerLogin", "Login", FormMethod.Post, new { enctype = "multipart/form-data", @id = "frmReviewerLogin", @class = "frmReviewerLogin", @autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.UserType, new { @id = @ViewBag.UserType })
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-20">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Email Address</label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "Email Address", @name = "Email", @autocomplete = "off" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Password</label>
+                                <div class="col-4">
+                                    @Html.PasswordFor(model => Model.Password, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "Password", @name = "Password", @autocomplete = "off" })
+                                </div>
+                            </div>
+                            <div class="form-group mb-0 justify-content-end row">
+                                <div class="col-10">
+                                    <button type="submit" class="btn btn-info waves-effect waves-light btnLogin" id="btnLogin">Sign in</button>
+                                    <button type="submit" class="hidden" id="btnSubmit">Login</button>
+                                    <br /><br />
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="message toast-warning error ErrorMessage" style="color:red;">
+                                                    @TempData["UserLoginFailed"]
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <label class="col-form-label">Still not Registered? Click <a href="@Url.Action("Register", "Reviewer")" class="active">here</a> to Register</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <label class="col-form-label"><a href="#" class="active CallForgotPassword">Forgot password?</a></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>
+
+<div class="hidden">
+    @using (@Html.BeginForm("ForgotPassword", "Login", FormMethod.Post, new { @class = "frmForgotPassword" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("UserType", "R")
+        <button type="submit" class="hidden" id="btnFPSubmit"></button>
+    }
+</div>
+
+<script type="text/javascript">
+
+    $(".CallForgotPassword").click(function (event) {
+        $("#btnFPSubmit").click();
+    });
+
+    $(".btnLogin").click(function (event) {
+        error = 0;
+        event.preventDefault();
+
+        if ($("input[name='Email']").val().trim() == "") {
+            $.alert('Please enter the Email Address');
+            $("#Email").focus();
+            return false;
+        }
+        else if ($("input[name='Password']").val().trim() == "") {
+            $.alert('Please enter the Password');
+            $("#Password").focus();
+            return false;
+        }
+        else {
+            $("#btnSubmit").click();
+            return true;
+        }
+    });
+</script>

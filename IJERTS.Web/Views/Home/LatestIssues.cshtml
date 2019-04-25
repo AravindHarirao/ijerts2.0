@@ -1,0 +1,55 @@
+﻿@model IEnumerable<IJERTS.Objects.CurrentIssues>
+<div class="form-group row">
+    <div class="col-12">
+        <table class="table table-bordered table-striped table-hover mb-0">
+            <thead class="thead-light">
+                <tr>
+                    <th width="250px">
+                        <center>Issue Name</center>
+                    </th>
+                    <th width="150px">
+                        <center>Number of downloads</center>
+                    </th>
+                    <th width="150px">
+                        <center>Posted date</center>
+                    </th>
+                    <th width="50px">
+                        <center>Download</center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><p>@item.PaperName</p></td>
+                        <td><p>@item.NumberOfDownload</p></td>
+                        <td><p>@item.PostedDate</p></td>
+                        
+                        <td>
+                            <a style="color:#fff;" class="btn btn-primary btn-xs btnDownloadCurrentIssue" data-paperid="@item.PaperId"
+                                                                                href="#" title="Download Issue">
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="hidden">
+    @using (@Html.BeginForm("DownloadCurrentIssue", "Home", FormMethod.Post))
+    {
+        @Html.Hidden("PaperId");
+        <button type="submit" class="hidden" id="btnDownloadCurrentIssue"></button>
+    }
+</div>
+<script>
+    $(document).on('click', '.btnDownloadCurrentIssue', function () {
+        $("#PaperId").val($(this).attr('data-paperid'));
+        $('#btnDownloadCurrentIssue').click();
+    });
+</script>
+

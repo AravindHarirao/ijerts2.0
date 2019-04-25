@@ -1,0 +1,87 @@
+﻿
+@{
+    @model IJERTS.Objects.Users
+    ViewBag.Title = "Editor Login";
+    ViewData["Title"] = "Editor Login";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Editor Login</h2>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card-box">
+            @using (Html.BeginForm("ValidateEditorLogin", "Login", FormMethod.Post, new { enctype = "multipart/form-data", @id = "frmEditorLogin", @class = "frmEditorLogin", @autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.UserType, new { @id = @ViewBag.UserType })
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-20">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Email Address</label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "Email Address", @name = "Email", @autocomplete = "off" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label">Password</label>
+                                <div class="col-4">
+                                    @Html.PasswordFor(model => Model.Password, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "Password", @name = "Password", @autocomplete = "off" })
+                                </div>
+                            </div>
+                            <div class="form-group mb-0 justify-content-end row">
+                                <div class="col-10">
+                                    <button type="submit" class="btn btn-info waves-effect waves-light btnLogin" id="btnLogin">Sign in</button>
+                                    <button type="submit" class="hidden" id="btnSubmit">Login</button>
+                                    <br /><br />
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="message toast-warning error ErrorMessage" style="color:red;">
+                                                    @TempData["UserLoginFailed"]
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    $(".btnLogin").click(function (event) {
+        error = 0;
+        event.preventDefault();
+
+        if ($("input[name='Email']").val().trim() == "") {
+            $.alert('Please enter the Email Address');
+            $("#Email").focus();
+            return false;
+        }
+        else if ($("input[name='Password']").val().trim() == "") {
+            $.alert('Please enter the Password');
+            $("#Password").focus();
+            return false;
+        }
+        else
+        {
+            $("#btnSubmit").click();
+            return true;
+        }
+    });
+</script>

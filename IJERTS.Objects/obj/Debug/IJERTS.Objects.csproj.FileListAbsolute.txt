@@ -1,0 +1,16 @@
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\bin\Debug\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\bin\Debug\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\obj\Debug\IJERTS.Objects.csprojResolveAssemblyReference.cache
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\obj\Debug\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\obj\Debug\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\bin\Debug\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\bin\Debug\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\obj\Debug\IJERTS.Objects.csprojResolveAssemblyReference.cache
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\obj\Debug\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\obj\Debug\IJERTS.Objects.pdb
+D:\Aravind\IJERTS\ijerts_2.0\IJERTS.NEW\IJERTS.Objects\bin\Debug\IJERTS.Objects.dll
+D:\Aravind\IJERTS\ijerts_2.0\IJERTS.NEW\IJERTS.Objects\bin\Debug\IJERTS.Objects.pdb
+D:\Aravind\IJERTS\ijerts_2.0\IJERTS.NEW\IJERTS.Objects\obj\Debug\IJERTS.Objects.csprojAssemblyReference.cache
+D:\Aravind\IJERTS\ijerts_2.0\IJERTS.NEW\IJERTS.Objects\obj\Debug\IJERTS.Objects.csproj.CoreCompileInputs.cache
+D:\Aravind\IJERTS\ijerts_2.0\IJERTS.NEW\IJERTS.Objects\obj\Debug\IJERTS.Objects.dll
+D:\Aravind\IJERTS\ijerts_2.0\IJERTS.NEW\IJERTS.Objects\obj\Debug\IJERTS.Objects.pdb

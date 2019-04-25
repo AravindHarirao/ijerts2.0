@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "CompleteRegister";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>@TempData["ReviewerRegisterHeading"]</h2>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card-box">
+            <h4>
+                <p class="text-muted">
+                    @TempData["ReviewerRegisterMessage"]
+                </p>
+            </h4>
+        </div>
+
+        <div class="form-group mb-0 justify-content-end row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-info waves-effect waves-light btnCreate" id="btnBack" onclick="location.href='@Url.Action("Index", "Reviewer")'">Back</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

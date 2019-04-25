@@ -1,0 +1,62 @@
+﻿@model IEnumerable<IJERTS.Objects.Paper>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Dashboard</h2>
+        </div>
+    </div>
+
+    @if (Model != null)
+    {
+        <div class="col-12">
+
+            <div class="card-box">
+
+                <table class="table table-bordered table-striped table-hover mb-0">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>
+                                <center>Title</center>
+                            </th>
+                            <th>
+                                <center>Short Desc</center>
+                            </th>
+                            <th>
+                                <center>Created By</center>
+                            </th>
+                            <th>
+                                <center>Created On</center>
+                            </th>
+                            <th>
+                                <center>Details</center>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><p>@item.MainTitle</p></td>
+                                <td><p>@item.ShortDesc</p></td>
+                                <td><p>@item.CreatedBy</p></td>
+                                <td><p>@item.CreatedDateTime.ToShortDateString()</p></td>
+                                <td>
+                                    <span class="badge label-table badge-custom">Details</span>
+                                    @*<p>@Html.ActionLink("Details", "GetPaperDetails", "Reviewer", new { id = @item.PaperId }, null)</p>*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    }
+</div>

@@ -1,0 +1,224 @@
+﻿
+@{
+    @model IJERTS.Objects.Users
+    ViewBag.Title = "MyProfile";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>My Profile</h2>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card-box">
+
+            @using (Html.BeginForm("UpdateProfile", "Reviewer", FormMethod.Post, new { enctype = "multipart/form-data", @id = "frmReviewerUpdate", @class = "frmReviewerUpdate", @autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-20">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">First Name&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @maxlength = 150, @placeholder = "First Name", @autocomplete = "off" })
+                                    @Html.HiddenFor(model => Model.UserId)
+                                    @Html.HiddenFor(model => Model.UpdateResumeFileName)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Last Name&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @maxlength = 150, @placeholder = "Last Name", @autocomplete = "off" } )
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Email Address&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @maxlength = 150, @placeholder = "Email Address", @autocomplete = "off" } )
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Mobile No&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @maxlength = 50, @placeholder = "Mobile No", @autocomplete = "off" } )
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Organisation</label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Organisation, new { @class = "form-control", @maxlength = 150, @placeholder = "Organisation", @autocomplete = "off" } )
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Qualification</label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Qualification, new { @class = "form-control", @maxlength = 150, @placeholder = "Qualification", @autocomplete = "off" } )
+                                    @Html.ValidationMessageFor(model => model.Qualification, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Department</label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Department, new { @class = "form-control", @maxlength = 150, @placeholder = "Department", @autocomplete = "off" } )
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Position</label>
+                                <div class="col-4">
+                                    @Html.TextBoxFor(model => model.Position, new { @class = "form-control", @maxlength = 150, @placeholder = "Position", @autocomplete = "off" } )
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Specialisation&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.DropDownListFor(model => model.SpecializationId, (IEnumerable<SelectListItem>)ViewBag.Specialization, "Select", new { @class = "form-control" })
+                                    @Html.HiddenFor(model => model.Specialisation)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Upload Resume</label>
+                                <div class="col-4">
+                                    <input type="file" class="form-control" id="UploadResume" name="UploadResume" accept=".doc, .docx, .pdf" />
+                                    @if (@Model.ResumeFileName != "")
+                                    {
+                                        <a style="color:#fff;" class="btn btn-primary btn-xs downloadResume" data-userid="@Model.UserId" data-resumefilename="@Model.ResumeFileName" href="#" title="Download Resume">
+                                            Download
+                                        </a>
+                                    }  
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-0 justify-content-end row">
+                                <div class="col-10">
+                                    <button type="submit" class="btn btn-info waves-effect waves-light btnCreate" id="btnCreate">Submit</button>
+                                    <button type="submit" class="hidden" id="btnSubmit">Submit</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <label id="lblError" class="text-danger"> @TempData["AuthorUserExists"]</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group">
+        <div class="col-12">
+            <label id="lblError" class="text-danger"> @TempData["ReviewerUpdated"]</label>
+        </div>
+    </div>
+</div>
+<div class="hidden">
+    @using (@Html.BeginForm("DownloadResume", "Reviewer", FormMethod.Post))
+    {
+        @Html.Hidden("UserId");
+        @Html.Hidden("ResumeFileName");
+        <button type="submit" class="hidden" id="btnDownloadResume"></button>
+    }
+</div>
+<script type="text/javascript">
+    $(document).on('click', '.downloadResume', function () {
+        $("#UserId").val($(this).attr('data-userid'));
+        $("#ResumeFileName").val($(this).attr('data-resumefilename'));
+        $('#btnDownloadResume').click();
+    });
+
+    //get file path from client system
+    function getNameFromPath(strFilepath) {
+        var objRE = new RegExp(/([^\/\\]+)$/);
+        var strName = objRE.exec(strFilepath);
+
+        if (strName == null) {
+            return null;
+        }
+        else {
+            return strName[0];
+        }
+    }
+
+    $(function () {
+        $("#UploadResume").change(function () {
+            var file = getNameFromPath($(this).val());
+            if (file != null) {
+                var extension = file.substr((file.lastIndexOf('.') + 1));
+                switch (extension) {
+                    case 'doc':
+                    case 'docx':
+                    case 'pdf':
+                        flag = true;
+                        break;
+                    default:
+                        flag = false;
+                }
+            }
+            if (flag == false) {
+                alert('You can upload only doc, docx and pdf extension file');
+                $("#UploadResume").focus();
+                return false;
+            }
+        });
+    });
+
+    $(".btnCreate").click(function (event) {
+        error = 0;
+        event.preventDefault();
+
+        var emailId = $("#Email").val();
+        var emailexpression = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+        var file = getNameFromPath($(this).val());
+
+        if ($("input[name='FirstName']").val().trim() == "") {
+            alert('Please enter the First Name');
+            $("#FirstName").focus();
+            return false;
+        }
+        else if ($("input[name='LastName']").val().trim() == "") {
+            alert('Please enter the Last Name');
+            $("#LastName").focus();
+            return false;
+        }
+        else if ($("input[name='Email']").val().trim() == "") {
+            alert('Please enter the Email Address');
+            $("#Email").focus();
+            return false;
+        }
+        else if (!emailexpression.test(emailId)) {
+            alert('Please enter the valid Email Address');
+            $("#Email").focus();
+            return false;
+        }
+        else if ($("input[name='Phone']").val().trim() == "") {
+            alert('Please enter the Phone No');
+            $("#Phone").focus();
+            return false;
+        }
+        else if ($("input[name='SpecializationId']").val() == "") {
+            alert('Please select the Specialisation');
+            $("#Specialisation").focus();
+            return false;
+        }
+        else if ($("input[name='Phone']").val().trim() == "") {
+            alert('Please enter the Phone No');
+            $("#Phone").focus();
+            return false;
+        }        
+        else {
+            $("#btnSubmit").click();
+            return true;
+        }
+    });
+</script>

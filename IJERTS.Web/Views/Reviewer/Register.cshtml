@@ -1,0 +1,210 @@
+﻿
+@{
+    @model IJERTS.Objects.Users
+    ViewBag.Title = "Register";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Reviewer Registration</h2>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card-box">
+
+            @using (Html.BeginForm("Register", "Reviewer", FormMethod.Post, new { enctype = "multipart/form-data", @id = "frmReviewerRegistration", @class = "frmReviewerRegistration", @autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-20">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">First Name&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @placeholder = "First Name", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Last Name&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @placeholder = "Last Name", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Email Address&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @placeholder = "Email Address", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Mobile No&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @maxlength = 50, @placeholder = "Mobile No", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Organisation</label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.Organisation, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @placeholder = "Organisation", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Qualification</label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.Qualification, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @placeholder = "Qualification", @autocomplete = "off" } })
+                                    @Html.ValidationMessageFor(model => model.Qualification, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Department</label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @placeholder = "Department", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Position</label>
+                                <div class="col-4">
+                                    @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control", @maxlength = 150, @placeholder = "Position", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Specialisation&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    @Html.DropDownListFor(model => model.SpecializationId, (IEnumerable<SelectListItem>)ViewBag.Specialization, "Select", new { @class = "form-control" })
+                                    @Html.HiddenFor(model => model.Specialisation)
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">Upload Resume&nbsp;<span class="req">*</span></label>
+                                <div class="col-4">
+                                    <input type="file" class="form-control" id="UploadResume" name="UploadResume" accept=".doc, .docx, .pdf" />
+                                </div>
+                            </div>
+                            <div class="form-group mb-0 justify-content-end row">
+                                <div class="col-10">
+                                    <button type="submit" class="btn btn-info waves-effect waves-light btnCreate" id="btnCreate">Submit</button>
+                                    <button type="submit" class="hidden" id="btnSubmit">Submit</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <label id="lblError" class="text-danger"> @TempData["ReviewerUserExists"]</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+    //get file path from client system
+    function getNameFromPath(strFilepath) {
+        var objRE = new RegExp(/([^\/\\]+)$/);
+        var strName = objRE.exec(strFilepath);
+
+        if (strName == null) {
+            return null;
+        }
+        else {
+            return strName[0];
+        }
+    }
+
+    $(function () {
+        $("#UploadResume").change(function () {
+            var file = getNameFromPath($(this).val());
+            if (file != null) {
+                var extension = file.substr((file.lastIndexOf('.') + 1));
+                switch (extension) {
+                    case 'doc':
+                    case 'docx':
+                    case 'pdf':
+                        flag = true;
+                        break;
+                    default:
+                        flag = false;
+                }
+            }
+            if (flag == false) {
+                alert('You can upload only doc, docx and pdf extension file');
+                $("#UploadResume").focus();
+                return false;
+            }            
+        });
+    });
+
+    $(".btnCreate").click(function (event) {
+        error = 0;
+        event.preventDefault();
+
+        var emailId = $("#Email").val();
+        var phoneNo = $("#Phone").val();
+
+        var emailexpression = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+        var phoneExpression = /\d{5}([- ]*)\d{6}/;
+                
+        if ($("input[name='FirstName']").val().trim() == "") {
+            $.alert('Please enter the First Name');
+            $("#FirstName").focus();
+            return false;
+        }
+        else if ($("input[name='LastName']").val().trim() == "") {
+            $.alert('Please enter the Last Name');
+            $("#LastName").focus();
+            return false;
+        }
+        else if ($("input[name='Email']").val().trim() == "") {
+            $.alert('Please enter the Email Address');
+            $("#Email").focus();
+            return false;
+        }
+        else if (!emailexpression.test(emailId)) {
+            $.alert('Please enter the valid Email Address');
+            $("#Email").focus();
+            return false;
+        }
+        else if ($("input[name='Phone']").val().trim() == "") {
+            $.alert('Please enter the Phone No');
+            $("#Phone").focus();
+            return false;
+        }
+        else if (!phoneExpression.test(phoneNo)) {
+            $.alert('Please enter a valid Phone No');
+            $("#Phone").focus();
+            return false;
+        }
+        else if ($("input[name='SpecializationId']").val() == "") {
+            $.alert('Please select the Specialisation');
+            $("#Specialisation").focus();
+            return false;
+        }
+        else if ($("input[name='Phone']").val().trim() == "") {
+            $.alert('Please enter the Phone No');
+            $("#Phone").focus();
+            return false;
+        }
+        else if ($("#UploadResume")[0].files.length == 0) {
+            $.alert('Please upload the Resume');
+            $("#UploadResume").focus();
+            return false;
+        }
+        else {
+            $("#btnSubmit").click();
+            return true;
+        }
+    });
+</script>

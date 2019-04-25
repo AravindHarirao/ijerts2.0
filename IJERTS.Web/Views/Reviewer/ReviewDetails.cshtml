@@ -1,0 +1,104 @@
+﻿
+@{
+    @model IJERTS.Objects.Users
+    ViewBag.Title = "ReviewDetails";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Reviewer Details</h2>
+        </div>
+    </div>
+
+    <div class="col-12">
+        @using (Html.BeginForm("UpdatePaper", "Editor", FormMethod.Post))
+        {
+            if (Model != null && Model.UserId > 0)
+            {
+                <input type="text" value="@Model.UserId" name="txtPaperId" style="visibility:hidden" />
+                <div class="col-12">
+
+                    <div class="card-box">
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <td width="20%">First Name</td>
+                                    <td width="80%">@Model.FirstName</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>@Model.LastName</td>
+                                </tr>
+                                <tr>
+                                    <td>Email Address</td>
+                                    <td>@Model.Email</td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile No</td>
+                                    <td>@Model.Phone</td>
+                                </tr>
+                                <tr>
+                                    <td>Organisation</td>
+                                    <td>@Model.Organisation</td>
+                                </tr>
+                                <tr>
+                                    <td>Qualification</td>
+                                    <td>@Model.Qualification</td>
+                                </tr>
+                                <tr>
+                                    <td>Department</td>
+                                    <td>@Model.Department</td>
+                                </tr>
+                                <tr>
+                                    <td>Position</td>
+                                    <td>@Model.Position</td>
+                                </tr>
+                                <tr>
+                                    <td>Specialisation</td>
+                                    <td>@Model.Specialisation</td>
+                                </tr>
+                                <tr>
+                                    <td>Resume</td>
+                                    <td>
+                                        <a style="color:#fff;" class="btn btn-primary btn-xs downloadResume" data-userid="@Model.UserId" data-resumefilename="@Model.ResumeFileName" href="#" title="Download Reviewer Resume">
+                                            Download
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-box">
+                        
+                        <div class="form-group mb-0 justify-content-end row">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="btnBack" onclick="location.href='@Url.Action("Index", "Editor")'">Back</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div class="hidden">
+    @using (@Html.BeginForm("DownloadResume", "Reviewer", FormMethod.Post))
+    {
+        @Html.Hidden("UserId");
+        @Html.Hidden("ResumeFileName");
+        <button type="submit" class="hidden" id="btnDownloadResume"></button>
+    }
+</div>
+<script>
+    $(document).on('click', '.downloadResume', function () {
+        $("#UserId").val($(this).attr('data-userid'));
+        $("#ResumeFileName").val($(this).attr('data-resumefilename'));
+        $('#btnDownloadResume').click();
+    });
+</script>

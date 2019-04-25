@@ -1,0 +1,8 @@
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\bin\Release\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\bin\Release\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\obj\Release\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\ijerts\IJERTS.Objects\obj\Release\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\bin\Release\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\bin\Release\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\obj\Release\IJERTS.Objects.dll
+D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\obj\Release\IJERTS.Objects.pdb

@@ -1,0 +1,243 @@
+﻿
+@{
+    @model IJERTS.Objects.Paper
+    ViewData["Title"] = "PostPaper";
+}
+
+<div class="row">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Submit Paper</h2>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card-box">
+        @using (Html.BeginForm("PostPaper", "Author", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-20">
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="example-email">Main Title&nbsp;<span class="req">*</span></label>
+                            <div class="col-4">
+                                @Html.EditorFor(model => model.MainTitle, new { htmlAttributes = new { @class = "form-control", @maxlength = 200, @placeholder = "Main Title", @autocomplete = "off" } })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="example-email">Short Description&nbsp;<span class="req">*</span></label>
+                            <div class="col-4">
+                                @Html.EditorFor(model => model.ShortDesc, new { htmlAttributes = new { @class = "form-control", @maxlength = 1000, @placeholder = "Short Description", @autocomplete = "off" } })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="example-email">Subject&nbsp;<span class="req">*</span></label>
+                            <div class="col-4">
+                                @Html.DropDownList("Subject", null, String.Empty, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="example-email">Tags</label>
+                            <div class="col-4">
+                                @Html.EditorFor(model => model.Tags, new { htmlAttributes = new { @class = "form-control", @maxlength = 50, @placeholder = "Tags", @autocomplete = "off" } })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="example-email">Upload Declaration&nbsp;<span class="req">*</span></label>
+                            <div class="col-4">
+                                <input type="file" class="form-control" id="DeclarationPaperPath" name="DeclarationPaperPath" accept=".doc, .docx, .pdf" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="example-email">Upload Article&nbsp;<span class="req">*</span></label>
+                            <div class="col-4">
+                                <input type="file" class="form-control" id="PaperPath" name="PaperPath" accept=".doc, .docx, .pdf" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <label id="lblFileName"><b><u>Authors Information</u></b></label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <table class="table mb-0">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Department</th>
+                                            <th>Organisation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="AuthorFirstName1" id="AuthorFirstName1" class="form-control" placeholder="First Name" maxlength="150"><span class="req">*</span></td>
+                                            <td><input type="text" name="AuthorLastName1" id="AuthorLastName1" class="form-control" placeholder="Last Name" maxlength="150"><span class="req">*</span></td>
+                                            <td><input type="text" name="AuthorDepartment1" id="AuthorDepartment1" class="form-control" placeholder="Department" maxlength="150"><span class="req">*</span></td>
+                                            <td><input type="text" name="AuthorOrganisation1" id="AuthorOrganisation1" class="form-control" placeholder="Organisation" maxlength="150"><span class="req">*</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="AuthorFirstName2" id="AuthorFirstName2" class="form-control" placeholder="First Name" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorLastName2" id="AuthorLastName2" class="form-control" placeholder="Last Name" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorDepartment2" id="AuthorDepartment2" class="form-control" placeholder="Department" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorOrganisation2" id="AuthorOrganisation2" class="form-control" placeholder="Organisation" maxlength="150"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="AuthorFirstName3" id="AuthorFirstName3" class="form-control" placeholder="First Name" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorLastName3" id="AuthorLastName3" class="form-control" placeholder="Last Name" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorDepartment3" id="AuthorDepartment3" class="form-control" placeholder="Department" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorOrganisation3" id="AuthorOrganisation3" class="form-control" placeholder="Organisation" maxlength="150"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="AuthorFirstName4" id="AuthorFirstName4" class="form-control" placeholder="First Name" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorLastName4" id="AuthorLastName4" class="form-control" placeholder="Last Name" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorDepartment4" id="AuthorDepartment4" class="form-control" placeholder="Department" maxlength="150"></td>
+                                            <td><input type="text" name="AuthorOrganisation4" id="AuthorOrganisation4" class="form-control" placeholder="Organisation" maxlength="150"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-0 justify-content-end row">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-info waves-effect waves-light btnPostPaper" id="btnPostPaper">Post Paper</button>
+                                <button type="submit" class="hidden" id="btnSubmit">Submit</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label id="lblError" class="text-danger"> @ViewData["PaperPostingFailed"]</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //get file path from client system
+    function getNameFromPath(strFilepath) {
+        var objRE = new RegExp(/([^\/\\]+)$/);
+        var strName = objRE.exec(strFilepath);
+
+        if (strName == null) {
+            return null;
+        }
+        else {
+            return strName[0];
+        }
+    }
+
+    $(function () {
+
+        $("#DeclarationPaperPath").change(function () {
+            var file = getNameFromPath($(this).val());
+            if (file != null) {
+                var extension = file.substr((file.lastIndexOf('.') + 1));
+                switch (extension) {
+                    case 'doc':
+                    case 'docx':
+                    case 'pdf':
+                        flag = true;
+                        break;
+                    default:
+                        flag = false;
+                }
+            }
+            if (flag == false) {
+                alert('You can upload only doc, docx and pdf extension file');
+                $("#DeclarationPaperPath").focus();
+                return false;
+            }
+        });
+
+        $("#PaperPath").change(function () {
+            var file = getNameFromPath($(this).val());
+            if (file != null) {
+                var extension = file.substr((file.lastIndexOf('.') + 1));
+                switch (extension) {
+                    case 'doc':
+                    case 'docx':
+                    case 'pdf':
+                        flag = true;
+                        break;
+                    default:
+                        flag = false;
+                }
+            }
+            if (flag == false) {
+                alert('You can upload only doc, docx and pdf extension file');
+                $("#PaperPath").focus();
+                return false;
+            }
+        });
+
+    });
+
+    $(".btnPostPaper").click(function (event) {
+        error = 0;
+        event.preventDefault();
+        
+        if ($("#MainTitle").val().trim() == "") {
+            $.alert('Please enter the Main Title');
+            $("#MainTitle").focus();
+            return false;
+        }
+        else if ($("#ShortDesc").val().trim() == "") {
+            $.alert('Please enter the Short Description');
+            $("#ShortDesc").focus();
+            return false;
+        }
+        else if ($("#Subject").val().trim() == "") {
+            $.alert('Please enter the Subject');
+            $("#Subject").focus();
+            return false;
+        }
+        else if ($("#DeclarationPaperPath")[0].files.length == 0) {
+            $.alert('Please upload the Declaration');
+            $("#DeclarationPaperPath").focus();
+            return false;
+        }
+        else if ($("#PaperPath")[0].files.length == 0) {
+            $.alert('Please upload the Article');
+            $("#PaperPath").focus();
+            return false;
+        }
+        else if ($("#AuthorFirstName1").val().trim() == "") {
+            $.alert('Please enter the Author FirstName1');
+            $("#AuthorFirstName1").focus();
+            return false;
+        }
+        else if ($("#AuthorLastName1").val().trim() == "") {
+            $.alert('Please enter the Author LastName1');
+            $("#AuthorLastName1").focus();
+            return false;
+        }
+        else if ($("#AuthorDepartment1").val().trim() == "") {
+            $.alert('Please enter the Author Department1');
+            $("#AuthorDepartment1").focus();
+            return false;
+        }
+        else if ($("#AuthorOrganisation1").val().trim() == "") {
+            $.alert('Please enter the Author Organisation1');
+            $("#AuthorOrganisation1").focus();
+            return false;
+        }
+        else
+        {
+            $("#btnSubmit").click();
+            return true;
+        }
+    });
+</script>

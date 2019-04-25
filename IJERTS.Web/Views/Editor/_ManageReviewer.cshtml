@@ -1,0 +1,148 @@
+﻿@model IEnumerable<IJERTS.Objects.Users>
+<div class="form-group row">
+    <div class="col-12">
+        <table class="table table-bordered table-striped table-hover mb-0">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        <center>Full Name</center>
+                    </th>
+                    <th>
+                        <center>Department</center>
+                    </th>
+                    <th>
+                        <center>Organisation</center>
+                    </th>
+                    <th>
+                        <center>Specilisation</center>
+                    </th>
+                    <th>
+                        <center>Active</center>
+                    </th>
+                    <th>
+                        <center>Details</center>
+                    </th>
+                    <th>
+                        <center>Delete</center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><p>@item.FirstName @item.LastName</p></td>
+                        <td><p>@item.Department</p></td>
+                        <td><p>@item.Organisation</p></td>
+                        <td><p>@item.Specialisation</p></td>
+                        <td>
+                            <p>
+                                @if (string.IsNullOrEmpty(item.UserActivationValue))
+                                {
+                                    <a href="#" class="color ActivateReviewer" data-userid="@item.UserId" data-firstname="@item.FirstName" data-lastname="@item.LastName" data-email="@item.Email"><span class="badge label-table badge-custom">Activate</span></a>
+                                }
+                                else
+                                {
+                                    <a href="#" class="color DeActivateReviewer" data-userid="@item.UserId" data-firstname="@item.FirstName" data-lastname="@item.LastName" data-email="@item.Email"><span class="badge label-table badge-custom">De-Activate</span></a>
+                                }
+                            </p>
+                        </td>
+                        <td>
+                            <p><a href="javascript:0" class="color GetReviewerDetails" data-userId="@item.UserId"><span class="badge label-table badge-custom">Details</span></a></p>
+                        </td>
+                        <td>
+                            <p><a href="#" class="color DeleteReviewer" data-userid="@item.UserId"><span class="badge label-table badge-custom">Delete</span></a></p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="hidden">
+    @using (Html.BeginForm("GetReviewerDetails", "Reviewer", FormMethod.Post, new { @class = "frmReviewerDetails" }))
+    {
+        @Html.Hidden("UserId")
+        <button class="hidden" id="btnReviewerDetails" type="Submit"></button>
+    }
+
+    @using (Html.BeginForm("ActivateDeActivateReviewer", "Reviewer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.Hidden("UserId")
+        @Html.Hidden("FirstName")
+        @Html.Hidden("LastName")
+        @Html.Hidden("Email")
+        @Html.Hidden("Type")
+        <button class="hidden" id="btnActivateReviewer" type="Submit"></button>
+    }
+
+    @using (Html.BeginForm("DeleteReviewer", "Editor", FormMethod.Post, new { @class = "frmReviewer", enctype = "multipart/form-data" }))
+    {
+        @Html.Hidden("UserId")
+        <button class="hidden" id="btnDeleteReviewer" type="Submit"></button>
+    }
+</div>
+<script>
+
+    $(document).on('click', '.GetReviewerDetails', function () {
+        var userId = $(this).attr("data-userId");
+        $(".frmReviewerDetails > #UserId").val(userId);
+        $('#btnReviewerDetails').click();
+    });
+
+    $(document).on('click', '.DeleteReviewer', function () {
+        var userid = $(this).attr("data-userid");
+        $.confirm({
+            title: false,
+            content: 'Are you sure you want to delete this Reviewer?',
+            icon: false,
+            boxWidth: '320px',
+            useBootstrap: false,
+            animation: 'scale',
+            closeAnimation: 'scale',
+            opacity: 0.5,
+            buttons: {
+                'cancel': {
+                    text: 'Cancel',
+                    btnClass: 'btn-red',
+                    action: function () {
+                    }
+                },
+                'confirm': {
+                    text: 'Confirm',
+                    btnClass: 'btn-blue',
+                    action: function () {
+                        $(".frmReviewer > #UserId").val(userid);
+                        $('#btnDeleteReviewer').click();
+                    }
+                },
+            },
+        });
+    });
+
+    $(document).on('click', '.ActivateReviewer', function () {
+        var userid = $(this).attr("data-userid");
+        var firstname = $(this).attr("data-firstname");
+        var lastname = $(this).attr("data-lastname");
+        var email = $(this).attr("data-email");
+        $('#UserId').val(userid);
+        $('#FirstName').val(firstname);
+        $('#LastName').val(lastname);
+        $('#Email').val(email);
+        $('#Type').val('A');
+        $('#btnActivateReviewer').click();
+    });
+
+    $(document).on('click', '.DeActivateReviewer', function () {
+        var userid = $(this).attr("data-userid");
+        var firstname = $(this).attr("data-firstname");
+        var lastname = $(this).attr("data-lastname");
+        var email = $(this).attr("data-email");
+        $('#UserId').val(userid);
+        $('#FirstName').val(firstname);
+        $('#LastName').val(lastname);
+        $('#Email').val(email);
+        $('#Type').val('D');
+        $('#btnActivateReviewer').click();
+    });
+</script>

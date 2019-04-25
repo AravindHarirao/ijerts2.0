@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    @*<title>@ViewBag.Title</title>*@
+    <title>International Journal Engineering Research & Technology Science</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta name="author" content="Sport Sync">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!--Clearing the cache-->
+    <meta http-equiv="Cache-Control" content="no-store" />
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.ico")">
+
+    <!-- CSS -->
+    <link href="@Url.Content("~/Content/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/icons.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/jquery-confirm.css")" rel="stylesheet" type="text/css" />
+    
+    <!-- Javascript -->
+    <script src="@Url.Content("~/Scripts/modernizr.min.js")"></script>
+
+    <!-- jQuery  -->
+    <script src="@Url.Content("~/Scripts/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/waves.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.slimscroll.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.core.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.app.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-confirm.js")"></script>
+    
+</head>
+<body>
+    <div>
+
+        <!-- Navigation Bar -->
+        @Html.Partial("_MenuHeader")
+        <!-- End Navigation Bar -->
+
+        <!-- Wrapper -->
+        <div class="wrapper">
+            <div class="container-fluid">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="btn-group float-right">
+                                <ol class="breadcrumb hide-phone p-0 m-0">
+                                    <li class="breadcrumb-item"><a href="#">Highdmin</a></li>
+                                    <li class="breadcrumb-item active">Dashboard</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Dashboard</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
+
+                @RenderBody()
+
+            </div> <!-- end container -->
+        </div>
+        <!-- End Wrapper -->
+
+        <!-- Footer -->
+        @Html.Partial("_MenuFooter")
+        <!-- End Footer -->
+    </div>
+</body>
+</html>
