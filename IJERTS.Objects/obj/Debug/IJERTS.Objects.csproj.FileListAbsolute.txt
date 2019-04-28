@@ -18,3 +18,4 @@ D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\bin\Debug\IJERTS.Obje
 D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\bin\Debug\IJERTS.Objects.pdb
 D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\obj\Debug\IJERTS.Objects.dll
 D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\obj\Debug\IJERTS.Objects.pdb
+D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\obj\Debug\IJERTS.Objects.csprojResolveAssemblyReference.cache

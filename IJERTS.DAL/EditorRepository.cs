@@ -87,8 +87,9 @@ namespace IJERTS.DAL
             //                        + "PAP.PaperId = AUT.PaperID WHERFE PAP.IsActive = 1";
             //string queryPaper = "select PaperId, MainTitle, ShortDesc, CreatedBy, CreatedDateTime from Papers WHERE IsActive = 1";
 
-            string queryPaper = "select p.PaperId, p.MainTitle, p.ShortDesc, p.CreatedBy, p.CreatedDateTime, ps.status "
-            + " from Papers p left join paperstatus ps on ps.paperid = p.paperid where p.IsActive = 1 ";
+            string queryPaper = "select p.PaperId, p.MainTitle, p.ShortDesc, p.CreatedBy, p.CreatedDateTime, ps.status, CONCAT(u.FirstName, ' ' ,u.LastName) AS ReviewerName "
+            + " from Papers p left join paperstatus ps on ps.paperid = p.paperid "
+            + " left join users u on u.UserId = ps.UserId where p.IsActive = 1 ";
 
             MySqlCommand cmd = new MySqlCommand();
 
@@ -108,6 +109,7 @@ namespace IJERTS.DAL
                     objPaper.CreatedBy = reader["CreatedBy"].ToString();
                     objPaper.CreatedDateTime = Convert.ToDateTime(reader["CreatedDateTime"].ToString());
                     objPaper.PaperStatus = reader["status"].ToString();
+                    objPaper.ReviewerName = reader["ReviewerName"].ToString();
                     lstPaperCollection.Add(objPaper);
                 }
 

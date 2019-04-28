@@ -13,6 +13,9 @@
                     <th width="50px">
                         <center>Status</center>
                     </th>
+                    <th width="50px">
+                        <center>Reviewer Name</center>
+                    </th>
                     <th width="25px">
                         <center>Created By</center>
                     </th>
@@ -34,13 +37,14 @@
                         <td><p>@item.MainTitle</p></td>
                         <td style="word-break: break-all;"><p>@item.ShortDesc</p></td>
                         <td><p>@item.PaperStatus</p></td>
+                        <td><p>@item.ReviewerName</p></td>
                         <td><p>@item.CreatedBy</p></td>
                         <td><p>@item.CreatedDateTime.ToShortDateString()</p></td>
                         <td>
-                            <p><a href="javascript:0" class="color GetPaperDetails" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Details</span></a></p>
+                            <p><a href="#" class="color GetPaperDetails" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Details</span></a></p>
                         </td>
                         <td>
-                            <p><a href="javascript:0" class="color DeletePaper" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Delete</span></a></p>
+                            <p><a href="#" class="color DeletePaper" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Delete</span></a></p>
                         </td>
                     </tr>
                 }
