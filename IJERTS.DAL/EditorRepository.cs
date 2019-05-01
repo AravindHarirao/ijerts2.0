@@ -89,7 +89,8 @@ namespace IJERTS.DAL
 
             string queryPaper = "select p.PaperId, p.MainTitle, p.ShortDesc, p.CreatedBy, p.CreatedDateTime, ps.status, CONCAT(u.FirstName, ' ' ,u.LastName) AS ReviewerName "
             + " from Papers p left join paperstatus ps on ps.paperid = p.paperid "
-            + " left join users u on u.UserId = ps.UserId where p.IsActive = 1 ";
+            + " left join papersapprovers pa on pa.PaperId = p.PaperId "
+            + " left join users u on u.UserId = pa.ApproverId where p.IsActive = 1 ";
 
             MySqlCommand cmd = new MySqlCommand();
 

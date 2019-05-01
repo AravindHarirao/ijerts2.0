@@ -48,13 +48,13 @@
                         <div class="form-group row">
                             <label class="col-2 col-form-label" for="example-email">Upload Declaration&nbsp;<span class="req">*</span></label>
                             <div class="col-4">
-                                <input type="file" class="form-control" id="DeclarationPaperPath" name="DeclarationPaperPath" accept=".doc, .docx, .pdf" />
+                                <input type="file" class="form-control" id="DeclarationPaperPath" name="DeclarationPaperPath" accept=".doc, .docx" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-2 col-form-label" for="example-email">Upload Article&nbsp;<span class="req">*</span></label>
                             <div class="col-4">
-                                <input type="file" class="form-control" id="PaperPath" name="PaperPath" accept=".doc, .docx, .pdf" />
+                                <input type="file" class="form-control" id="PaperPath" name="PaperPath" accept=".doc, .docx" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -143,52 +143,64 @@
 
         $("#DeclarationPaperPath").change(function () {
             var file = getNameFromPath($(this).val());
-            if (file != null) {
-                var extension = file.substr((file.lastIndexOf('.') + 1));
-                switch (extension) {
-                    case 'doc':
-                    case 'docx':
-                    case 'pdf':
-                        flag = true;
-                        break;
-                    default:
-                        flag = false;
-                }
-            }
-            if (flag == false) {
-                alert('You can upload only doc, docx and pdf extension file');
-                $("#DeclarationPaperPath").focus();
-                return false;
-            }
+            ValidateDeclaration(file, 'Y');
         });
 
         $("#PaperPath").change(function () {
             var file = getNameFromPath($(this).val());
-            if (file != null) {
-                var extension = file.substr((file.lastIndexOf('.') + 1));
-                switch (extension) {
-                    case 'doc':
-                    case 'docx':
-                    case 'pdf':
-                        flag = true;
-                        break;
-                    default:
-                        flag = false;
-                }
-            }
-            if (flag == false) {
-                alert('You can upload only doc, docx and pdf extension file');
-                $("#PaperPath").focus();
-                return false;
-            }
+            ValidateArticle(file, 'Y');
         });
 
     });
+
+    function ValidateDeclaration(file, mode) {
+        if (file != null) {
+            var extension = file.substr((file.lastIndexOf('.') + 1));
+            switch (extension) {
+                case 'doc':
+                case 'docx':
+                    // case 'pdf':
+                    flag = true;
+                    break;
+                default:
+                    flag = false;
+            }
+        }
+        if (flag == false && mode == 'Y') {
+            alert('You can upload only doc and docx extension file');
+            $("#DeclarationPaperPath").focus();
+            return false;
+        }
+    }
+
+    function ValidateArticle(file, mode)
+    {
+        if (file != null) {
+            var extension = file.substr((file.lastIndexOf('.') + 1));
+            switch (extension) {
+                case 'doc':
+                case 'docx':
+                    //case 'pdf':
+                    flag = true;
+                    break;
+                default:
+                    flag = false;
+            }
+        }
+        if (flag == false && mode == 'Y') {
+            alert('You can upload only doc and docx extension file');
+            $("#PaperPath").focus();
+            return false;
+        }
+    }
 
     $(".btnPostPaper").click(function (event) {
         error = 0;
         event.preventDefault();
         
+        var DeclarationPaperPath = getNameFromPath($("#DeclarationPaperPath").val());
+        var PaperPath = getNameFromPath($("#PaperPath").val());
+
         if ($("#MainTitle").val().trim() == "") {
             $.alert('Please enter the Main Title');
             $("#MainTitle").focus();
@@ -209,8 +221,18 @@
             $("#DeclarationPaperPath").focus();
             return false;
         }
+        else if (!ValidateDeclaration(DeclarationPaperPath, 'N')) {
+            alert('You can upload only doc and docx extension file');
+            $("#DeclarationPaperPath").focus();
+            return false;
+        }
         else if ($("#PaperPath")[0].files.length == 0) {
             $.alert('Please upload the Article');
+            $("#PaperPath").focus();
+            return false;
+        }
+        else if (!ValidateArticle(PaperPath, 'N')) {
+            alert('You can upload only doc and docx extension file');
             $("#PaperPath").focus();
             return false;
         }

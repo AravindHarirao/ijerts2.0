@@ -140,7 +140,7 @@ namespace IJERTS.Web.Controllers
                     paperAuthors1.AuthorFirstName = AuthorFirstName1;
                     paperAuthors1.AuthorLastName = AuthorLastName1;
                     paperAuthors1.Department = AuthorDepartment1;
-                    paperAuthors1.Organisation = AuthorDepartment1;
+                    paperAuthors1.Organisation = AuthorOrganisation1;
                     authors.Add(paperAuthors1);
                 }
 
@@ -150,7 +150,7 @@ namespace IJERTS.Web.Controllers
                     paperAuthors2.AuthorFirstName = AuthorFirstName2;
                     paperAuthors2.AuthorLastName = AuthorLastName2;
                     paperAuthors2.Department = AuthorDepartment2;
-                    paperAuthors2.Organisation = AuthorDepartment2;
+                    paperAuthors2.Organisation = AuthorOrganisation2;
                     authors.Add(paperAuthors2);
                 }
 
@@ -160,7 +160,7 @@ namespace IJERTS.Web.Controllers
                     paperAuthors3.AuthorFirstName = AuthorFirstName3;
                     paperAuthors3.AuthorLastName = AuthorLastName3;
                     paperAuthors3.Department = AuthorDepartment3;
-                    paperAuthors3.Organisation = AuthorDepartment3;
+                    paperAuthors3.Organisation = AuthorOrganisation3;
                     authors.Add(paperAuthors3);
                 }
 
@@ -170,7 +170,7 @@ namespace IJERTS.Web.Controllers
                     paperAuthors4.AuthorFirstName = AuthorFirstName4;
                     paperAuthors4.AuthorLastName = AuthorLastName4;
                     paperAuthors4.Department = AuthorDepartment4;
-                    paperAuthors4.Organisation = AuthorDepartment4;
+                    paperAuthors4.Organisation = AuthorOrganisation4;
                     authors.Add(paperAuthors4);
                 }
 
