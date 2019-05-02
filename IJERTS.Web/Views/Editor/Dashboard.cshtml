@@ -1,4 +1,4 @@
-﻿@model Tuple<List<IJERTS.Objects.Paper>, List<IJERTS.Objects.Users>, List<IJERTS.Objects.Queries>> 
+﻿@model IJERTS.Objects.EditorDashboard
 @{
     ViewData["Title"] = "Dashboard";
 }
@@ -16,33 +16,135 @@
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a href="#ManagePapers" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                    <a href="#ManagePapers" data-toggle="tab" aria-expanded="false" class="nav-link active managePaperList">
                         <i class="fi-monitor mr-2"></i>Manage Papers
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#ManageReviewer" data-toggle="tab" aria-expanded="true" class="nav-link">
+                    <a href="#ManageReviewer" data-toggle="tab" aria-expanded="true" class="nav-link manageReviewerList">
                         <i class="fi-head mr-2"></i>Manage Reviewer
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#ManageQueries" data-toggle="tab" aria-expanded="false" class="nav-link">
+                    <a href="#ManageQueries" data-toggle="tab" aria-expanded="false" class="nav-link manageQueriesList">
                         <i class="fi-mail mr-2"></i> Manage Queries
                     </a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane show active" id="ManagePapers">
-                    @Html.Partial("_ManagePaper", Model.Item1)
+                <div class="tab-pane show active LoadManagePaperList" id="ManagePapers">
+                    @Html.Partial("_ManagePaper", Model)
                 </div>
-                <div class="tab-pane" id="ManageReviewer">
-                    @Html.Partial("_ManageReviewer", Model.Item2)
+                <div class="tab-pane LoadManageReviewerList" id="ManageReviewer">
+                    @Html.Partial("_ManageReviewer", Model)
                 </div>
-                <div class="tab-pane" id="ManageQueries">
-                    @Html.Partial("_ManageQueries", Model.Item3)
+                <div class="tab-pane LoadManageQueriesList" id="ManageQueries">
+                    @Html.Partial("_ManageQueries", Model)
                 </div>
             </div>
 
         </div>
     </div>
 </div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.LoadManagePaperList').html('');
+        $('.LoadManageReviewerList').html('');
+        $('.LoadManageQueriesList').html('');
+
+        //Retain the Active TAB
+        GetManagePaperList(); //Need to remove it when Active TAB code implemented
+        v@*ar editorDashbord = '@TempData["EditorDashboardDetail"]';
+        if (editorDashbord == '' || editorDashbord == 'Papers') {
+            $(".managePaperList").addClass("active show");
+            $(".manageReviewerList").removeClass("active show");
+            $(".manageQueriesList").removeClass("active show");
+
+            GetManagePaperList();
+        }
+        else if (editorDashbord != '' && editorDashbord == 'Reviewer') {
+            $(".managePaperList").removeClass("active show");
+            $(".manageReviewerList").addClass("active show");
+            $(".manageQueriesList").removeClass("active show");
+
+            GetManageReviewerList();
+        }
+        else if (editorDashbord != '' && editorDashbord == 'Queries') {
+            $(".managePaperList").removeClass("active show");
+            $(".manageReviewerList").removeClass("active show");
+            $(".manageQueriesList").addClass("active show");
+
+            GetManageQueriesList();
+        }*@
+    });
+
+    $(document).on('click', '.managePaperList', function () {
+        GetManagePaperList();
+    });
+
+    $(document).on('click', '.manageReviewerList', function () {
+        GetManageReviewerList();
+    });
+
+    $(document).on('click', '.manageQueriesList', function () {
+        GetManageQueriesList();
+    });
+
+    function GetManagePaperList() {
+        $('.LoadManagePaperList').html('');
+        $.ajax({
+            url: '@Url.Action("GetAllPapers", "Editor")',
+            type: "POST",
+            dataType: 'html',
+            data: {},
+            success: function (response) {
+                $('.LoadManagePaperList').html(response);
+            },
+            error: function (response, error) {
+                $.alert('An application error has occurred. Please contact support');
+            },
+            complete: function (data) {
+            }
+        });
+    }
+
+    function GetManageReviewerList() {
+        $('.LoadManageReviewerList').html('');
+        $.ajax({
+            url: '@Url.Action("GetAllReviewer", "Editor")',
+            type: "POST",
+            dataType: 'html',
+            data: {},
+            success: function (response) {
+                $('.LoadManageReviewerList').html(response);
+            },
+            error: function (response, error) {
+                $.alert('An application error has occurred. Please contact support');
+            },
+            complete: function (data) {
+            }
+        });
+    }
+
+    function GetManageQueriesList() {
+        $('.LoadManageQueriesList').html('');
+        $.ajax({
+            url: '@Url.Action("GetAllQueries", "Editor")',
+            type: "POST",
+            dataType: 'html',
+            data: {},
+            success: function (response) {
+                $('.LoadManageQueriesList').html(response);
+            },
+            error: function (response, error) {
+                $.alert('An application error has occurred. Please contact support');
+            },
+            complete: function (data) {
+            }
+        });
+    }
+
+</script>

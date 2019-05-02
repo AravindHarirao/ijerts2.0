@@ -1,40 +1,56 @@
-﻿@model IEnumerable<IJERTS.Objects.Queries>
-<div class="form-group row">
-    <div class="col-12">
-        <table class="table table-bordered table-striped table-hover mb-0">
-            <thead class="thead-light">
-                <tr>
-                    <th width="150px">
-                        <center>Full Name</center>
-                    </th>
-                    <th width="150px">
-                        <center>Email</center>
-                    </th>
-                    <th width="250px">
-                        <center>Query</center>
-                    </th>
-                    <th width="50px">
-                        <center>Details</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+﻿@model IJERTS.Objects.EditorDashboard
+@{
+    Layout = null;
+}
+@if (Model != null && Model.LstQueries != null && Model.LstQueries.Count > 0)
+{
+    <div class="form-group row">
+        <div class="col-12">
+            <table class="table table-bordered table-striped table-hover mb-0">
+                <thead class="thead-light">
                     <tr>
-                        <td><p>@item.FirstName, @item.LastName</p></td>
-                        <td><p>@item.Email</p></td>
-                        <td><p>@item.QueryText</p></td>
-                        <td>
-                            <p><a href="javascript:0" class="color GetQueryDetails" data-queryId="@item.QueryId"><span class="badge label-table badge-custom">Details</span></a></p>
-                            @*<p>@Html.ActionLink("Details", "QueryDetails", "Editor", new { id = @item.QueryId }, null)</p>*@
-                        </td>
+                        <th width="150px">
+                            <center>Full Name</center>
+                        </th>
+                        <th width="150px">
+                            <center>Email</center>
+                        </th>
+                        <th width="250px">
+                            <center>Query</center>
+                        </th>
+                        <th width="50px">
+                            <center>Details</center>
+                        </th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.LstQueries)
+                    {
+                        <tr>
+                            <td><p>@item.FirstName, @item.LastName</p></td>
+                            <td><p>@item.Email</p></td>
+                            <td><p>@item.QueryText</p></td>
+                            <td>
+                                <p><a href="javascript:0" class="color GetQueryDetails" data-queryId="@item.QueryId"><span class="badge label-table badge-custom">Details</span></a></p>
+                                @*<p>@Html.ActionLink("Details", "QueryDetails", "Editor", new { id = @item.QueryId }, null)</p>*@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="form-group mb-0 justify-content-end row">
+        <div class="col-12">
+            <br />
+            <b>There are no Queries available to view</b>
+            <br />
+        </div>
+    </div>
+}
 
 <div class="hidden">
     @using (Html.BeginForm("GetQueryDetails", "Editor", FormMethod.Post, new { @class = "frmQueryDetails" }))

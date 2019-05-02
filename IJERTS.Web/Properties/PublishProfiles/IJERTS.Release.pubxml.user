@@ -10,34 +10,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/IJERTS.BLL.dll">
-      <publishTime>05/01/2019 12:24:50</publishTime>
+      <publishTime>05/03/2019 00:11:07</publishTime>
     </File>
     <File Include="bin/IJERTS.BLL.pdb">
-      <publishTime>05/01/2019 12:24:50</publishTime>
+      <publishTime>05/03/2019 00:11:07</publishTime>
     </File>
     <File Include="bin/IJERTS.Common.dll">
-      <publishTime>05/01/2019 12:24:49</publishTime>
+      <publishTime>05/03/2019 00:11:06</publishTime>
     </File>
     <File Include="bin/IJERTS.Common.pdb">
-      <publishTime>05/01/2019 12:24:49</publishTime>
+      <publishTime>05/03/2019 00:11:06</publishTime>
     </File>
     <File Include="bin/IJERTS.DAL.dll">
-      <publishTime>05/01/2019 12:24:50</publishTime>
+      <publishTime>05/03/2019 00:11:07</publishTime>
     </File>
     <File Include="bin/IJERTS.DAL.pdb">
-      <publishTime>05/01/2019 12:24:50</publishTime>
+      <publishTime>05/03/2019 00:11:07</publishTime>
     </File>
     <File Include="bin/IJERTS.Objects.dll">
-      <publishTime>05/01/2019 12:24:48</publishTime>
+      <publishTime>05/03/2019 00:11:05</publishTime>
     </File>
     <File Include="bin/IJERTS.Objects.pdb">
-      <publishTime>05/01/2019 12:24:48</publishTime>
+      <publishTime>05/03/2019 00:11:05</publishTime>
     </File>
     <File Include="bin/IJERTS.Web.dll">
-      <publishTime>05/01/2019 12:25:01</publishTime>
+      <publishTime>05/03/2019 00:11:15</publishTime>
     </File>
     <File Include="bin/IJERTS.Web.pdb">
-      <publishTime>05/01/2019 12:25:01</publishTime>
+      <publishTime>05/03/2019 00:11:15</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>04/25/2019 21:50:06</publishTime>
@@ -1009,7 +1009,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2019 21:50:02</publishTime>
     </File>
     <File Include="Views/Editor/Dashboard.cshtml">
-      <publishTime>04/25/2019 21:50:02</publishTime>
+      <publishTime>05/03/2019 00:07:40</publishTime>
     </File>
     <File Include="Views/Editor/EditorialBoard.cshtml">
       <publishTime>04/25/2019 21:50:02</publishTime>
@@ -1021,19 +1021,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2019 21:50:03</publishTime>
     </File>
     <File Include="Views/Editor/QueryDetails.cshtml">
-      <publishTime>04/25/2019 21:50:03</publishTime>
+      <publishTime>05/02/2019 22:44:04</publishTime>
     </File>
     <File Include="Views/Editor/Register.cshtml">
       <publishTime>04/25/2019 21:50:03</publishTime>
     </File>
     <File Include="Views/Editor/_ManagePaper.cshtml">
-      <publishTime>04/28/2019 12:25:33</publishTime>
+      <publishTime>05/02/2019 22:49:51</publishTime>
     </File>
     <File Include="Views/Editor/_ManageQueries.cshtml">
-      <publishTime>04/25/2019 21:50:03</publishTime>
+      <publishTime>05/03/2019 00:08:29</publishTime>
     </File>
     <File Include="Views/Editor/_ManageReviewer.cshtml">
-      <publishTime>05/01/2019 12:05:17</publishTime>
+      <publishTime>05/02/2019 22:49:12</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>04/25/2019 21:50:03</publishTime>
@@ -1159,7 +1159,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2019 21:50:03</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/01/2019 12:25:54</publishTime>
+      <publishTime>05/03/2019 00:11:46</publishTime>
     </File>
   </ItemGroup>
 </Project>

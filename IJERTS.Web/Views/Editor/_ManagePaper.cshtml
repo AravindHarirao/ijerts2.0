@@ -1,57 +1,74 @@
-﻿@model IEnumerable<IJERTS.Objects.Paper>
-<div class="form-group row">
-    <div class="col-12">
-        <table class="table table-bordered table-striped table-hover mb-0">
-            <thead class="thead-light">
-                <tr>
-                    <th width="250px">
-                        <center>Title</center>
-                    </th>
-                    <th width="100px">
-                        <center>Short Desc</center>
-                    </th>
-                    <th width="50px">
-                        <center>Status</center>
-                    </th>
-                    <th width="50px">
-                        <center>Reviewer Name</center>
-                    </th>
-                    <th width="25px">
-                        <center>Created By</center>
-                    </th>
-                    <th width="25px">
-                        <center>Created On</center>
-                    </th>
-                    <th width="25px">
-                        <center>Details</center>
-                    </th>
-                    <th width="25px">
-                        <center>Delete</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+﻿@model IJERTS.Objects.EditorDashboard
+@{
+    Layout = null;
+}
+@if (Model != null && Model.LstPapers != null && Model.LstPapers.Count > 0)
+{
+    <div class="form-group row">
+        <div class="col-12">
+            <table class="table table-bordered table-striped table-hover mb-0">
+                <thead class="thead-light">
                     <tr>
-                        <td><p>@item.MainTitle</p></td>
-                        <td style="word-break: break-all;"><p>@item.ShortDesc</p></td>
-                        <td><p>@item.PaperStatus</p></td>
-                        <td><p>@item.ReviewerName</p></td>
-                        <td><p>@item.CreatedBy</p></td>
-                        <td><p>@item.CreatedDateTime.ToShortDateString()</p></td>
-                        <td>
-                            <p><a href="#" class="color GetPaperDetails" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Details</span></a></p>
-                        </td>
-                        <td>
-                            <p><a href="#" class="color DeletePaper" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Delete</span></a></p>
-                        </td>
+                        <th width="250px">
+                            <center>Title</center>
+                        </th>
+                        <th width="100px">
+                            <center>Short Desc</center>
+                        </th>
+                        <th width="50px">
+                            <center>Status</center>
+                        </th>
+                        <th width="50px">
+                            <center>Reviewer Name</center>
+                        </th>
+                        <th width="25px">
+                            <center>Created By</center>
+                        </th>
+                        <th width="25px">
+                            <center>Created On</center>
+                        </th>
+                        <th width="25px">
+                            <center>Details</center>
+                        </th>
+                        <th width="25px">
+                            <center>Delete</center>
+                        </th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>                
+                    @foreach (var item in Model.LstPapers)
+                    {
+                        <tr>
+                            <td><p>@item.MainTitle</p></td>
+                            <td style="word-break: break-all;"><p>@item.ShortDesc</p></td>
+                            <td><p>@item.PaperStatus</p></td>
+                            <td><p>@item.ReviewerName</p></td>
+                            <td><p>@item.CreatedBy</p></td>
+                            <td><p>@item.CreatedDateTime.ToShortDateString()</p></td>
+                            <td>
+                                <p><a href="#" class="color GetPaperDetails" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Details</span></a></p>
+                            </td>
+                            <td>
+                                <p><a href="#" class="color DeletePaper" data-paperId="@item.PaperId"><span class="badge label-table badge-custom">Delete</span></a></p>
+                            </td>
+                        </tr>
+                    }                
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="form-group mb-0 justify-content-end row">
+        <div class="col-12">
+            <br />
+            <b>There are no Papers available to view</b>
+            <br />
+        </div>
+    </div>
+}
+
 <div class="hidden">
     @using (Html.BeginForm("GetPaperDetails", "Editor", FormMethod.Post, new { @class = "frmPaperDetails" }))
     {

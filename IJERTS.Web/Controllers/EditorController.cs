@@ -23,22 +23,57 @@ namespace IJERTS.Web.Controllers
             {
                 return result;
             }
-
-            //Getting the Papers
-            List<Paper> papers = _editor.GetAllPapers();
-
-            //Getting the Reviwer 
-            List<Users> reviewers = _review.GetAllReviewers();
-            ViewData["Reviewers"] = new SelectList((System.Collections.IEnumerable)reviewers, "UserId", string.Format("{0}, {1}", LastName, FirstName));
-
-            List<Queries> queries = _editor.GetQueries();
-
-            var objResults = new Tuple<List<Paper>, List<Users>, List<Queries>>(papers, reviewers, queries);
-
+            
             ViewBag.UserType = "Editor";
-            return View("Dashboard", objResults);
+            
+            return View("Dashboard");
         }
-        
+
+        [HttpPost]
+        public ActionResult GetAllPapers()
+        {
+            List<Paper> papers = _editor.GetAllPapers();
+            EditorDashboard objEditorDashboard = new EditorDashboard();
+            if(papers != null && papers.Count > 0)
+            {
+                objEditorDashboard.LstPapers = papers;
+            }
+            TempData.Remove("EditorDashboardDetail");
+            TempData["EditorDashboardDetail"] = "Papers";
+            TempData.Keep("EditorDashboardDetail");
+            return View("_ManagePaper", objEditorDashboard);
+        }
+
+        [HttpPost]
+        public ActionResult GetAllReviewer()
+        {
+            List<Users> reviewers = _review.GetAllReviewers();
+            EditorDashboard objEditorDashboard = new EditorDashboard();
+            if (reviewers != null && reviewers.Count > 0)
+            {
+                objEditorDashboard.LstUsers = reviewers;
+            }
+            TempData.Remove("EditorDashboardDetail");
+            TempData["EditorDashboardDetail"] = "Reviewer";
+            TempData.Keep("EditorDashboardDetail");
+            return View("_ManageReviewer", objEditorDashboard);
+        }
+
+        [HttpPost]
+        public ActionResult GetAllQueries()
+        {
+            List<Queries> queries = _editor.GetQueries();
+            EditorDashboard objEditorDashboard = new EditorDashboard();
+            if (queries != null && queries.Count > 0)
+            {
+                objEditorDashboard.LstQueries = queries;
+            }
+            TempData.Remove("EditorDashboardDetail");
+            TempData["EditorDashboardDetail"] = "Queries";
+            TempData.Keep("EditorDashboardDetail");
+            return View("_ManageQueries", objEditorDashboard);
+        }
+
         public ActionResult UpdatePaper(Paper paper, int txtPaperId, string txtComments, string Reviewers)
         {
             int reviewerId = string.IsNullOrEmpty(Reviewers) ? -1 : int.Parse(Reviewers.Trim());

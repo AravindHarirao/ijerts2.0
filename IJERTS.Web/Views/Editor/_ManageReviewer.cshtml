@@ -1,64 +1,81 @@
-﻿@model IEnumerable<IJERTS.Objects.Users>
-<div class="form-group row">
-    <div class="col-12">
-        <table class="table table-bordered table-striped table-hover mb-0">
-            <thead class="thead-light">
-                <tr>
-                    <th>
-                        <center>Full Name</center>
-                    </th>
-                    <th>
-                        <center>Department</center>
-                    </th>
-                    <th>
-                        <center>Organisation</center>
-                    </th>
-                    <th>
-                        <center>Specilisation</center>
-                    </th>
-                    <th>
-                        <center>Active</center>
-                    </th>
-                    <th>
-                        <center>Details</center>
-                    </th>
-                    <th>
-                        <center>Delete</center>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+﻿@model IJERTS.Objects.EditorDashboard
+@{
+    Layout = null;
+}
+@if (Model != null && Model.LstUsers != null && Model.LstUsers.Count > 0)
+{
+    <div class="form-group row">
+        <div class="col-12">
+            <table class="table table-bordered table-striped table-hover mb-0">
+                <thead class="thead-light">
                     <tr>
-                        <td><p>@item.FirstName @item.LastName</p></td>
-                        <td><p>@item.Department</p></td>
-                        <td><p>@item.Organisation</p></td>
-                        <td><p>@item.Specialisation</p></td>
-                        <td>
-                            <p>
-                                @if (string.IsNullOrEmpty(item.UserActivationValue))
-                                {
-                                    <a href="#" class="color ActivateReviewer" data-userid="@item.UserId" data-firstname="@item.FirstName" data-lastname="@item.LastName" data-email="@item.Email"><span class="badge label-table badge-custom">Activate</span></a>
-                                }
-                                else
-                                {
-                                    <a href="#" class="color DeActivateReviewer" data-userid="@item.UserId" data-firstname="@item.FirstName" data-lastname="@item.LastName" data-email="@item.Email"><span class="badge label-table badge-custom">De-Activate</span></a>
-                                }
-                            </p>
-                        </td>
-                        <td>
-                            <p><a href="#" class="color GetReviewerDetails" data-userId="@item.UserId"><span class="badge label-table badge-custom">Details</span></a></p>
-                        </td>
-                        <td>
-                            <p><a href="#" class="color DeleteReviewer" data-userid="@item.UserId"><span class="badge label-table badge-custom">Delete</span></a></p>
-                        </td>
+                        <th>
+                            <center>Full Name</center>
+                        </th>
+                        <th>
+                            <center>Department</center>
+                        </th>
+                        <th>
+                            <center>Organisation</center>
+                        </th>
+                        <th>
+                            <center>Specilisation</center>
+                        </th>
+                        <th>
+                            <center>Active</center>
+                        </th>
+                        <th>
+                            <center>Details</center>
+                        </th>
+                        <th>
+                            <center>Delete</center>
+                        </th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>                    
+                    @foreach (var item in Model.LstUsers)
+                    {
+                        <tr>
+                            <td><p>@item.FirstName @item.LastName</p></td>
+                            <td><p>@item.Department</p></td>
+                            <td><p>@item.Organisation</p></td>
+                            <td><p>@item.Specialisation</p></td>
+                            <td>
+                                <p>
+                                    @if (string.IsNullOrEmpty(item.UserActivationValue))
+                                    {
+                                        <a href="#" class="color ActivateReviewer" data-userid="@item.UserId" data-firstname="@item.FirstName" data-lastname="@item.LastName" data-email="@item.Email"><span class="badge label-table badge-custom">Activate</span></a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="color DeActivateReviewer" data-userid="@item.UserId" data-firstname="@item.FirstName" data-lastname="@item.LastName" data-email="@item.Email"><span class="badge label-table badge-custom">De-Activate</span></a>
+                                    }
+                                </p>
+                            </td>
+                            <td>
+                                <p><a href="#" class="color GetReviewerDetails" data-userId="@item.UserId"><span class="badge label-table badge-custom">Details</span></a></p>
+                            </td>
+                            <td>
+                                <p><a href="#" class="color DeleteReviewer" data-userid="@item.UserId"><span class="badge label-table badge-custom">Delete</span></a></p>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="form-group mb-0 justify-content-end row">
+        <div class="col-12">
+            <br />
+            <b>There are no Reviewer available to view</b>
+            <br />
+        </div>
+    </div>
+}
+
 <div class="hidden">
     @using (Html.BeginForm("GetReviewerDetails", "Reviewer", FormMethod.Post, new { @class = "frmReviewerDetails" }))
     {

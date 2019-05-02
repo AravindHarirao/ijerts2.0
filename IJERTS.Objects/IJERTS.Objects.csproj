@@ -48,6 +48,7 @@
     <Compile Include="IJERTSAbstract.cs" />
     <Compile Include="LoginRequest.cs" />
     <Compile Include="LoginResponse.cs" />
+    <Compile Include="EditorDashboard.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="PaperAuthors.cs" />
     <Compile Include="PaperComments.cs" />
