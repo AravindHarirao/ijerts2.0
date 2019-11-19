@@ -27,8 +27,7 @@
                         <td><p>@item.PostedDate</p></td>
                         
                         <td>
-                            <a style="color:#fff;" class="btn btn-primary btn-xs btnDownloadCurrentIssue" data-paperid="@item.PaperId"
-                                                                                href="#" title="Download Issue">
+                            <a style="color:#fff;" class="btn btn-primary btn-xs btnDownloadCurrentIssue" data-paperid="@item.PaperId" href="#" title="Download Issue">
                                 Download
                             </a>
                         </td>
@@ -42,13 +41,13 @@
 <div class="hidden">
     @using (@Html.BeginForm("DownloadCurrentIssue", "Home", FormMethod.Post))
     {
-        @Html.Hidden("PaperId");
+        @Html.Hidden("DPaperId");
         <button type="submit" class="hidden" id="btnDownloadCurrentIssue"></button>
     }
 </div>
 <script>
     $(document).on('click', '.btnDownloadCurrentIssue', function () {
-        $("#PaperId").val($(this).attr('data-paperid'));
+        $("#DPaperId").val($(this).attr('data-paperid'));
         $('#btnDownloadCurrentIssue').click();
     });
 </script>

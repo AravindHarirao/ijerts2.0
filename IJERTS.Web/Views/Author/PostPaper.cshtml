@@ -142,55 +142,64 @@
     $(function () {
 
         $("#DeclarationPaperPath").change(function () {
-            var file = getNameFromPath($(this).val());
-            ValidateDeclaration(file, 'Y');
+            var decfile = getNameFromPath($(this).val());
+            ValidateDeclaration(decfile, 'Y');
         });
 
         $("#PaperPath").change(function () {
-            var file = getNameFromPath($(this).val());
-            ValidateArticle(file, 'Y');
+            var artfile = getNameFromPath($(this).val());
+            ValidateArticle(artfile, 'Y');
         });
 
     });
 
-    function ValidateDeclaration(file, mode) {
-        if (file != null) {
-            var extension = file.substr((file.lastIndexOf('.') + 1));
-            switch (extension) {
+    function ValidateDeclaration(decFile, decMode) {
+        var decFlag = false;
+        if (decFile != null) {
+            var decExtension = decFile.substr((decFile.lastIndexOf('.') + 1));
+            switch (decExtension) {
                 case 'doc':
                 case 'docx':
                     // case 'pdf':
-                    flag = true;
+                    decFlag = true;
                     break;
                 default:
-                    flag = false;
+                    decFlag = false;
             }
         }
-        if (flag == false && mode == 'Y') {
-            alert('You can upload only doc and docx extension file');
+        if (decFlag == false && decMode == 'Y') {
+            alert('You can upload only doc and docx extension file for Declaration');
             $("#DeclarationPaperPath").focus();
             return false;
         }
+        else
+        {
+            return true;
+        }
     }
 
-    function ValidateArticle(file, mode)
+    function ValidateArticle(artFile, artMode)
     {
-        if (file != null) {
-            var extension = file.substr((file.lastIndexOf('.') + 1));
-            switch (extension) {
+        var artFlag = false;
+        if (artFile != null) {
+            var artExtension = artFile.substr((artFile.lastIndexOf('.') + 1));
+            switch (artExtension) {
                 case 'doc':
                 case 'docx':
                     //case 'pdf':
-                    flag = true;
+                    artFlag = true;
                     break;
                 default:
-                    flag = false;
+                    artFlag = false;
             }
         }
-        if (flag == false && mode == 'Y') {
-            alert('You can upload only doc and docx extension file');
+        if (artFlag == false && artMode == 'Y') {
+            alert('You can upload only doc and docx extension file for Article');
             $("#PaperPath").focus();
             return false;
+        }
+        else {
+            return true;
         }
     }
 
@@ -198,8 +207,8 @@
         error = 0;
         event.preventDefault();
         
-        var DeclarationPaperPath = getNameFromPath($("#DeclarationPaperPath").val());
-        var PaperPath = getNameFromPath($("#PaperPath").val());
+        var sDeclarationPaperPath = getNameFromPath($("#DeclarationPaperPath").val());
+        var sPaperPath = getNameFromPath($("#PaperPath").val());
 
         if ($("#MainTitle").val().trim() == "") {
             $.alert('Please enter the Main Title');
@@ -221,8 +230,8 @@
             $("#DeclarationPaperPath").focus();
             return false;
         }
-        else if (!ValidateDeclaration(DeclarationPaperPath, 'N')) {
-            alert('You can upload only doc and docx extension file');
+        else if (!ValidateDeclaration(sDeclarationPaperPath, 'Y')) {
+            alert('You can upload only doc and docx extension file for Declaration ');
             $("#DeclarationPaperPath").focus();
             return false;
         }
@@ -231,8 +240,8 @@
             $("#PaperPath").focus();
             return false;
         }
-        else if (!ValidateArticle(PaperPath, 'N')) {
-            alert('You can upload only doc and docx extension file');
+        else if (!ValidateArticle(sPaperPath, 'Y')) {
+            alert('You can upload only doc and docx extension file for Article');
             $("#PaperPath").focus();
             return false;
         }

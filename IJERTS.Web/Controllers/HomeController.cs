@@ -109,13 +109,10 @@ namespace IJERTS.Web.Controllers
 
         }
 
-        public FileResult DownloadCurrentIssue(int PaperId)
+        public FileResult DownloadCurrentIssue(int DPaperId)
         {            
-            string selectedFileName = (home.GetCurrentIssues()).FirstOrDefault(x => x.PaperId == PaperId).PaperName;
-            string selectedFilePath = (home.GetCurrentIssues()).FirstOrDefault(x => x.PaperId == PaperId).PaperPath;
-
-            home.IncreamentDownloadCounter(PaperId);
-
+            string selectedFileName = (home.GetCurrentIssues()).FirstOrDefault(x => x.PaperId == DPaperId).PaperName;
+            string selectedFilePath = (home.GetCurrentIssues()).FirstOrDefault(x => x.PaperId == DPaperId).PaperPath;
             string sUploadedPath = Server.MapPath("~/CurrentIssues/");
             string sFileName = sUploadedPath + selectedFilePath;
             if (!string.IsNullOrEmpty(sFileName))
@@ -123,6 +120,7 @@ namespace IJERTS.Web.Controllers
                 if (System.IO.File.Exists(sFileName))
                 {
                     string fileExtension = Path.GetExtension(sFileName);
+                    home.IncreamentDownloadCounter(DPaperId);
                     return this.File(sFileName, "application/" + fileExtension, selectedFilePath);
                 }
                 else

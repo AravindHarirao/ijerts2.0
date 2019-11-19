@@ -11,7 +11,7 @@ namespace IJERTS.Common
         static string sSmtpHost = "smtp.gmail.com";
         static string sSmtpPort = "587";
         static string sSmtpUsername = "ijerts@gmail.com";
-        static string sSmtpPassword = "ijerts@123";
+        static string sSmtpPassword = "1j3rt5@123$!";
 
         public static string SendWelcomeEmailtoUser(Users user)
         {
