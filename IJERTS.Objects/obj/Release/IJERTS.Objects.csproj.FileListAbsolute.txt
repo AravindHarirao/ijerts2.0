@@ -8,6 +8,5 @@ D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\obj\Release\IJERTS.O
 D:\Senthil\Workarea\JournalEditor\IJERTS.NEW\IJERTS.Objects\obj\Release\IJERTS.Objects.pdb
 D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\bin\Release\IJERTS.Objects.dll
 D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\bin\Release\IJERTS.Objects.pdb
-D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\obj\Release\IJERTS.Objects.csprojResolveAssemblyReference.cache
 D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\obj\Release\IJERTS.Objects.dll
 D:\Senthil\Workarea\JournalEditor\ijerts2.0\IJERTS.Objects\obj\Release\IJERTS.Objects.pdb

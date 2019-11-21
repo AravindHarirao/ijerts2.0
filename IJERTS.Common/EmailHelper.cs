@@ -13,6 +13,12 @@ namespace IJERTS.Common
         static string sSmtpUsername = "ijerts@gmail.com";
         static string sSmtpPassword = "1j3rt5@123$!";
 
+        //static string sFromEmailAddress = "mailservice@ijerts.org";
+        //static string sSmtpHost = "mail.ijerts.org";
+        //static string sSmtpPort = "25";
+        //static string sSmtpUsername = "mailservice@ijerts.org";
+        //static string sSmtpPassword = "sHi4Flz3o8@0v%49";
+
         public static string SendWelcomeEmailtoUser(Users user)
         {
             try
@@ -131,15 +137,8 @@ namespace IJERTS.Common
 
                 mail.Body = sbEmailMsg.ToString();
                 mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = sSmtpHost;
-                smtp.Port = Convert.ToInt32(sSmtpPort);
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential(sSmtpUsername, sSmtpPassword); // Enter seders User name and password  
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
 
-                return "Success";
+                return SendEmails(mail);
             }
             catch (Exception ex)
             {
@@ -245,15 +244,8 @@ namespace IJERTS.Common
 
                 mail.Body = sbEmailMsg.ToString();
                 mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = sSmtpHost;
-                smtp.Port = Convert.ToInt32(sSmtpPort);
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential(sSmtpUsername, sSmtpPassword); // Enter seders User name and password  
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
 
-                return "Success";
+                return SendEmails(mail);
             }
             catch (Exception ex)
             {
@@ -320,17 +312,10 @@ namespace IJERTS.Common
 
                 mail.Body = sbEmailMsg.ToString();
                 mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = sSmtpHost;
-                smtp.Port = Convert.ToInt32(sSmtpPort);
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential(sSmtpUsername, sSmtpPassword); // Enter seders User name and password  
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
 
-                return "Success";
+                return SendEmails(mail);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return "Error"; //ex.Message.ToString();
             }
@@ -354,19 +339,12 @@ namespace IJERTS.Common
                 sbEmailMsg.Append("<br><p>");
                 sbEmailMsg.Append(Query.QueryAnswer);
                 sbEmailMsg.Append("</p>");
-
-
+                
                 mail.Body = sbEmailMsg.ToString();
                 mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = sSmtpHost;
-                smtp.Port = Convert.ToInt32(sSmtpPort);
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential(sSmtpUsername, sSmtpPassword); // Enter seders User name and password  
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
 
-                return "Success";
+                return SendEmails(mail);
+                
             }
             catch (Exception)
             {
@@ -471,21 +449,34 @@ namespace IJERTS.Common
 
                 mail.Body = sbEmailMsg.ToString();
                 mail.IsBodyHtml = true;
+
+                return SendEmails(mail);                
+            }
+            catch (Exception ex)
+            {
+                return ex.Message.ToString();
+            }
+        }
+
+        public static string SendEmails(MailMessage sMail)
+        {
+            try
+            {
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = sSmtpHost;
                 smtp.Port = Convert.ToInt32(sSmtpPort);
                 smtp.UseDefaultCredentials = false;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Credentials = new System.Net.NetworkCredential(sSmtpUsername, sSmtpPassword); // Enter seders User name and password  
                 smtp.EnableSsl = true;
-                smtp.Send(mail);
-
+                smtp.Send(sMail);
                 return "Success";
             }
             catch (Exception ex)
             {
                 return ex.Message.ToString();
             }
-        }        
+        }
 
     }
 }

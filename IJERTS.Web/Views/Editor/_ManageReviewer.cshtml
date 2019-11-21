@@ -107,6 +107,7 @@ else
         $('#btnReviewerDetails').click();
     });
 
+    $(document).off('click', ".DeleteReviewer")
     $(document).on('click', '.DeleteReviewer', function () {
         var userid = $(this).attr("data-userid");
         $.confirm({
@@ -137,6 +138,7 @@ else
         });
     });
 
+    $(document).off('click', ".ActivateReviewer")
     $(document).on('click', '.ActivateReviewer', function () {
         var userid = $(this).attr("data-userid");
         var firstname = $(this).attr("data-firstname");
@@ -150,6 +152,7 @@ else
         $('#btnActivateReviewer').click();
     });
 
+    $(document).off('click', ".DeActivateReviewer")
     $(document).on('click', '.DeActivateReviewer', function () {
         var userid = $(this).attr("data-userid");
         var firstname = $(this).attr("data-firstname");

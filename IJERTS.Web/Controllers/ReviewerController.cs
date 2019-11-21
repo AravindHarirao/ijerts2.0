@@ -69,7 +69,7 @@ namespace IJERTS.Web.Controllers
             if(objUser.ResultMessage.ToUpper().Equals("SUCCESS"))
             {
                 TempData["ReviewerRegisterHeading"] = "Registration Completed!";
-                TempData["ReviewerRegisterMessage"] = "Thank you for registering with us. Your Registration is successfull and you can check your email for your login credentials.";
+                TempData["ReviewerRegisterMessage"] = "Thank you for registering with us. Your Registration is successfull and you can check your email for your login credentials after your account is activated.";
 
                 return View("CompleteRegister");
             }

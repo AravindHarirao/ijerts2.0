@@ -89,6 +89,7 @@ else
         $('#btnPaperDetails').click();
     });
 
+    $(document).off('click', ".DeletePaper")
     $(document).on('click', '.DeletePaper', function () {
         var paperId = $(this).attr("data-paperId");
         $.confirm({

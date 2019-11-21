@@ -10,34 +10,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/IJERTS.BLL.dll">
-      <publishTime>11/20/2019 00:48:13</publishTime>
+      <publishTime>11/21/2019 23:33:44</publishTime>
     </File>
     <File Include="bin/IJERTS.BLL.pdb">
-      <publishTime>11/20/2019 00:48:13</publishTime>
+      <publishTime>11/21/2019 23:33:44</publishTime>
     </File>
     <File Include="bin/IJERTS.Common.dll">
-      <publishTime>11/20/2019 00:48:11</publishTime>
+      <publishTime>11/21/2019 23:33:43</publishTime>
     </File>
     <File Include="bin/IJERTS.Common.pdb">
-      <publishTime>11/20/2019 00:48:10</publishTime>
+      <publishTime>11/21/2019 23:33:43</publishTime>
     </File>
     <File Include="bin/IJERTS.DAL.dll">
-      <publishTime>11/20/2019 00:48:12</publishTime>
+      <publishTime>11/21/2019 23:33:43</publishTime>
     </File>
     <File Include="bin/IJERTS.DAL.pdb">
-      <publishTime>11/20/2019 00:48:12</publishTime>
+      <publishTime>11/21/2019 23:33:43</publishTime>
     </File>
     <File Include="bin/IJERTS.Objects.dll">
-      <publishTime>11/20/2019 00:48:10</publishTime>
+      <publishTime>11/21/2019 23:33:42</publishTime>
     </File>
     <File Include="bin/IJERTS.Objects.pdb">
-      <publishTime>11/20/2019 00:48:10</publishTime>
+      <publishTime>11/21/2019 23:33:42</publishTime>
     </File>
     <File Include="bin/IJERTS.Web.dll">
-      <publishTime>11/20/2019 00:48:22</publishTime>
+      <publishTime>11/21/2019 23:33:52</publishTime>
     </File>
     <File Include="bin/IJERTS.Web.pdb">
-      <publishTime>11/20/2019 00:48:22</publishTime>
+      <publishTime>11/21/2019 23:33:52</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>04/25/2019 21:50:06</publishTime>
@@ -598,7 +598,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/10/2019 07:55:19</publishTime>
     </File>
     <File Include="Content/images/Logo.png">
-      <publishTime>04/25/2019 21:50:01</publishTime>
+      <publishTime>11/21/2019 23:33:19</publishTime>
     </File>
     <File Include="Content/images/logomain.png">
       <publishTime>01/10/2019 07:55:19</publishTime>
@@ -997,7 +997,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/20/2019 00:46:43</publishTime>
     </File>
     <File Include="Views/Author/Register.cshtml">
-      <publishTime>04/25/2019 21:50:02</publishTime>
+      <publishTime>11/21/2019 22:05:44</publishTime>
     </File>
     <File Include="Views/Author/TrackMyPaper.cshtml">
       <publishTime>04/25/2019 21:50:02</publishTime>
@@ -1027,13 +1027,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2019 21:50:03</publishTime>
     </File>
     <File Include="Views/Editor/_ManagePaper.cshtml">
-      <publishTime>05/02/2019 22:49:51</publishTime>
+      <publishTime>11/21/2019 23:28:38</publishTime>
     </File>
     <File Include="Views/Editor/_ManageQueries.cshtml">
       <publishTime>11/19/2019 23:33:42</publishTime>
     </File>
     <File Include="Views/Editor/_ManageReviewer.cshtml">
-      <publishTime>05/02/2019 22:49:12</publishTime>
+      <publishTime>11/21/2019 23:28:12</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>11/19/2019 22:22:30</publishTime>
@@ -1123,7 +1123,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2019 21:50:03</publishTime>
     </File>
     <File Include="Views/Reviewer/Register.cshtml">
-      <publishTime>04/25/2019 21:50:03</publishTime>
+      <publishTime>11/21/2019 22:44:11</publishTime>
     </File>
     <File Include="Views/Reviewer/Responsiblities.cshtml">
       <publishTime>04/25/2019 21:50:03</publishTime>
@@ -1159,7 +1159,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2019 21:50:03</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/20/2019 00:49:35</publishTime>
+      <publishTime>11/21/2019 23:34:31</publishTime>
     </File>
   </ItemGroup>
 </Project>
