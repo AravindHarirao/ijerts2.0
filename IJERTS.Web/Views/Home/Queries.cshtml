@@ -16,59 +16,67 @@
     <div class="col-12">
         <div class="card-box">
 
-            @using (Html.BeginForm("Queries", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @id = "frmQueries", @class = "frmQueries", @autocomplete = "off" }))
-            {
-                @Html.AntiForgeryToken()
-                <div class="row">
-                    <div class="col-12">
-                        <div class="p-20">
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" for="example-email">First Name&nbsp;<span class="req">*</span></label>
-                                <div class="col-4">
-                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "FirstName", @name = "FirstName", @autocomplete = "off" })
-                                    @Html.DisplayTextFor(model => model.FirstName)
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" for="example-email">Last Name&nbsp;<span class="req">*</span></label>
-                                <div class="col-4">
-                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "LastName", @name = "LastName", @autocomplete = "off" })
-                                    @Html.DisplayTextFor(model => model.LastName)
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" for="example-email">Email Address&nbsp;<span class="req">*</span></label>
-                                <div class="col-4">
-                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "Email", @name = "Email", @autocomplete = "off" })
-                                    @Html.DisplayTextFor(model => model.Email)
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" for="example-email">Query&nbsp;<span class="req">*</span></label>
-                                <div class="col-4">
-                                    @Html.TextAreaFor(model => model.QueryText, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 1000, @row = 4, @placeholder = "Query", @name = "QueryText", @autocomplete = "off" })
-                                    @Html.DisplayTextFor(model => model.QueryText)
-                                </div>
-                            </div>
-                            <div class="form-group mb-0 justify-content-end row">
-                                <div class="col-10">
-                                    <button type="submit" class="btn btn-info waves-effect waves-light btnSave" id="btnSave">Submit</button>
-                                    <button type="submit" class="hidden" id="btnSubmit">Submit</button>
-                                    <button type="button" class="btn btn-info waves-effect waves-light" id="btnBack" onclick="location.href='@Url.Action("Index", "Home")'">Back</button>
-                                </div>
-                            </div>
+            <table border="0" width="1050PX">
+                <tr>
+                    <td width="500px" valign="top">
+                        @using (Html.BeginForm("Queries", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @id = "frmQueries", @class = "frmQueries", @autocomplete = "off" }))
+                        {
+                            @Html.AntiForgeryToken()
                             <div class="row">
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <label id="lblError" class="text-danger"> @TempData["QueryStatus"]</label>
+                                <div class="col-12">
+                                    <div class="p-20">
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label" for="example-email">First Name&nbsp;<span class="req">*</span></label>
+                                            <div class="col-8">
+                                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "FirstName", @name = "FirstName", @autocomplete = "off" })
+                                                @Html.DisplayTextFor(model => model.FirstName)
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label" for="example-email">Last Name&nbsp;<span class="req">*</span></label>
+                                            <div class="col-8">
+                                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "LastName", @name = "LastName", @autocomplete = "off" })
+                                                @Html.DisplayTextFor(model => model.LastName)
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label" for="example-email">Email Address&nbsp;<span class="req">*</span></label>
+                                            <div class="col-8">
+                                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 150, @placeholder = "Email", @name = "Email", @autocomplete = "off" })
+                                                @Html.DisplayTextFor(model => model.Email)
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label" for="example-email">Query&nbsp;<span class="req">*</span></label>
+                                            <div class="col-8">
+                                                @Html.TextAreaFor(model => model.QueryText, new { @class = "form-control form-control-solid placeholder-no-fix disablecopypaste", @maxlength = 1000, @row = 4, @placeholder = "Query", @name = "QueryText", @autocomplete = "off" })
+                                                @Html.DisplayTextFor(model => model.QueryText)
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-0 justify-content-end row">
+                                            <div class="col-10">
+                                                <button type="submit" class="btn btn-info waves-effect waves-light btnSave" id="btnSave">Submit</button>
+                                                <button type="submit" class="hidden" id="btnSubmit">Submit</button>
+                                                <button type="button" class="btn btn-info waves-effect waves-light" id="btnBack" onclick="location.href='@Url.Action("Index", "Home")'">Back</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label id="lblError" class="text-danger"> @TempData["QueryStatus"]</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            }
-
+                        }
+                    </td>
+                    <td class="control-label" width="450px" valign="top">
+                        <b>Editor in Chief</b><br />IJERTS - International Journal of Engineering Research and Technology Science, 3A Car Street, Salem, Tamilnadu - 636201
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 
